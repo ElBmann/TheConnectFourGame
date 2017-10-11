@@ -65,11 +65,11 @@ public class ConnectFourView extends GridLayout {
         LayoutParams lpStatus= new LayoutParams(rowSpec, columnSpec);
         status.setLayoutParams(lpStatus);
 
-        status.setWidth(row*width);
+        status.setWidth(column*width);
         status.setHeight(width);//may have to change this
         status.setGravity(Gravity.CENTER);
         status.setBackgroundColor(Color.GREEN);
-        status.setTextSize((int)(width*1.5));
+        status.setTextSize((int)(width*.15));
 
         addView(status);
     }
@@ -81,7 +81,7 @@ public class ConnectFourView extends GridLayout {
     }
     public void setButtonText(int row,int column,String text){
         int r;
-        for(r=ConnectFour.row-1;r > 0;r--){
+        for(r=ConnectFour.row-1;r > -1;r--){
             if(!buttons[r][column].getText().toString().contains("X")&&
                     !buttons[r][column].getText().toString().contains("0")){
                 break;

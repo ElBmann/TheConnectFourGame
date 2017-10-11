@@ -2,6 +2,7 @@ package com.androiddev.brianrecuero.theconnectfourgame;
 
 /**
  * Created by Brian Recuero on 10/5/2017.
+ * Bugg After clicking button multiple times code crashes
  */
 
 public class ConnectFour {
@@ -19,19 +20,18 @@ public class ConnectFour {
     public int play(int r, int c) {
         int currentTurn = player_Turn;
         if (r >= 0 && c >= 0 && r < row && c < column
-                && game[r][c] == 0) {//........if it fits in the params and there are free spaces on the Connect Four Board
+                && game[0][c] == 0) {//........if it fits in the params and there are free spaces on the Connect Four Board
             int rows;
-            for(rows=ConnectFour.row-1;r>0;r--){
+            for(rows=ConnectFour.row-1; r > -1;r--){
                 if(game[rows][c]==0) {
                     game[r][c] = player_Turn;
                     break;
                 }
             }
 
-
             if (player_Turn == 1) {
                 player_Turn = 2;
-            } else {
+            } else if(player_Turn==2) {
                 player_Turn = 1;
             }
             return currentTurn;
@@ -99,30 +99,7 @@ public class ConnectFour {
     }
 
     protected int checkDiagonals() {
-//        final int r = row;
-//        final int c = column;
-//
-//        int[][]movment={{1,0},{1,-1},{1,1},{0,1}};
-//        for(int [] m : movment ){
-//            int mx = m[0];
-//            int my = m[1];
-//
-//            for(int x=0;x < r ;x++){
-//                for(int y=0;y < c ;y++){
-//                    int oldX = x + 3*mx;
-//                    int oldY = y + 3*my;
-//                    if(0 <= oldX && oldX < r && 0 <= oldY && oldY < y){
-//                        int w = game[x][y];
-//                        if(w != 0 && w == game[x+mx][y+my]
-//                                && w== game[x+2*mx][y+2*my]
-//                                && w== game[oldX][oldY]){
-//                            return w;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return 0;
+
 
         final int maxx = row;
         final int maxy = column;
@@ -153,14 +130,14 @@ public class ConnectFour {
     public boolean canNotPlay() {
         boolean result = true;
 
-        for (int r = 0; r < 6; r++) {
+
             for(int c=0;c<7;c++){
-                if(game[r][c]==0){
+                if(game[0][c]==0){
                     result= false;
                 }
 
             }
-        }
+
 
         return result;
     }
