@@ -33,6 +33,7 @@ public class ConnectFour {
                 player_Turn = 2;
             } else if(player_Turn==2) {
                 player_Turn = 1;
+
             }
             return currentTurn;
         } else {

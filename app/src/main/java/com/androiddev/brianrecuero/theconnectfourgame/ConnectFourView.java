@@ -6,6 +6,7 @@ package com.androiddev.brianrecuero.theconnectfourgame;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -19,9 +20,8 @@ public class ConnectFourView extends GridLayout {
     public int column;
     public int row;
     private Button[][] buttons;
-    private Button[] btn;
     private TextView status;
-    //private TextView[][] XandO;
+
     public ConnectFourView(Context context, int width, int newSide2,int newSide,
                            OnClickListener listener) {
         super(context);
@@ -31,14 +31,6 @@ public class ConnectFourView extends GridLayout {
         setColumnCount(column);
         setRowCount(row+1);
 
-//        XandO=new TextView[row-1][column];
-//        for(int r=0;r<row;r++){
-//            for(int c=0;c<column;c++){
-//                XandO[r][c]=new TextView(context);
-//                XandO[r][c].setText((int)(width*.2));
-//               addView(XandO[r][c],width,width);
-//            }
-//        }
         buttons=new Button[row][column];
         for(int r=0;r<row;r++){
             for(int c=0;c<column;c++){
@@ -50,13 +42,6 @@ public class ConnectFourView extends GridLayout {
 
             }
         }
-//        btn=new Button[row];
-//        for(int r=0;r<row;r++){
-//            btn[r]=new Button(context);
-//            btn[r].setTextSize((int)(width*.2));
-//            btn[r].setOnClickListener(listener);
-//            addView(btn[r],width, width);
-//        }
 
 
         status=new TextView(context);
@@ -81,13 +66,27 @@ public class ConnectFourView extends GridLayout {
     }
     public void setButtonText(int row,int column,String text){
         int r;
+
         for(r=ConnectFour.row-1;r > -1;r--){
             if(!buttons[r][column].getText().toString().contains("X")&&
                     !buttons[r][column].getText().toString().contains("0")){
                 break;
             }
         }
+
         buttons[r][column].setText(text);
+        if(text.contains("X")){
+            buttons[r][column].setTextColor(Color.RED);
+            buttons[r][column].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+
+
+        }
+        if(text.contains("0")){
+
+            buttons[r][column].setTextColor(Color.BLACK);
+            buttons[r][column].getBackground().setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_ATOP);
+
+        }
     }
     public boolean isButton(Button b,int row,int column){
         return (b==buttons[row][column]);
