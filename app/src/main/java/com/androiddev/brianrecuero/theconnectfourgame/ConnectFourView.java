@@ -7,6 +7,7 @@ package com.androiddev.brianrecuero.theconnectfourgame;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.GradientDrawable;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.GridLayout;
@@ -15,9 +16,7 @@ import android.widget.TextView;
 /**
  * Created by Brian Recuero on 10/5/2017.
  */
-//// TODO: 10/11/2017 Add a Main Menu Activity
-//// TODO: 10/11/2017 Allow user to create user name
-//// TODO: 10/11/2017 Create possible AI
+
 public class ConnectFourView extends GridLayout {
     public int column;
     public int row;
@@ -30,16 +29,27 @@ public class ConnectFourView extends GridLayout {
         column=newSide;
         row=newSide2;
 
-        setColumnCount(column);
-        setRowCount(row+1);
+        setColumnCount(column);// Creates the column in GridLayout
+        setRowCount(row+1);//Creates the row in GridLayout
+        setBackgroundColor(Color.YELLOW);//Creates Background color for GridLayout
 
-        buttons=new Button[row][column];
+        buttons=new Button[row][column];//Intialize Button
         for(int r=0;r<row;r++){
             for(int c=0;c<column;c++){
 
                 buttons[r][c]=new Button(context);
                 buttons[r][c].setTextSize((int)(width*.2));
                 buttons[r][c].setOnClickListener(listener);
+            /*Turns the Button to a circle Progromatically*/
+
+
+                GradientDrawable circle = new GradientDrawable();
+                circle.setShape(GradientDrawable.OVAL);
+                circle.setCornerRadius(5);
+                circle.setColor(Color.WHITE);
+                buttons[r][c].setBackground(circle);
+
+
                 addView(buttons[r][c],width,width);
 
             }

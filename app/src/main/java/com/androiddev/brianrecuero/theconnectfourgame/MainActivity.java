@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setPositiveButton("YES", playAgian);
         alert.setNegativeButton("NO",playAgian);
         alert.show();
-        //todo: if user chooses no send to credit page
+
 
     }
     private class ButtonHandler implements ConnectFourView.OnClickListener{
