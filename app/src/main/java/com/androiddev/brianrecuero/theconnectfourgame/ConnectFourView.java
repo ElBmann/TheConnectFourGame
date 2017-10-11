@@ -15,7 +15,9 @@ import android.widget.TextView;
 /**
  * Created by Brian Recuero on 10/5/2017.
  */
-
+//// TODO: 10/11/2017 Add a Main Menu Activity
+//// TODO: 10/11/2017 Allow user to create user name
+//// TODO: 10/11/2017 Create possible AI
 public class ConnectFourView extends GridLayout {
     public int column;
     public int row;
@@ -51,10 +53,10 @@ public class ConnectFourView extends GridLayout {
         status.setLayoutParams(lpStatus);
 
         status.setWidth(column*width);
-        status.setHeight(width);//may have to change this
+        status.setHeight(400);//may have to change this
         status.setGravity(Gravity.CENTER);
         status.setBackgroundColor(Color.GREEN);
-        status.setTextSize((int)(width*.15));
+        status.setTextSize((int)(width*.50));
 
         addView(status);
     }
