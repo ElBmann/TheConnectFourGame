@@ -67,7 +67,7 @@ public class ConnectFourView extends GridLayout {
     public void setButtonText(int row,int column,String text){
         int r;
 
-        for(r=ConnectFour.row-1;r > -1;r--){
+        for(r= ConnectFour.row-1;r > -1;r--){
             if(!buttons[r][column].getText().toString().contains("X")&&
                     !buttons[r][column].getText().toString().contains("0")){
                 break;
@@ -75,6 +75,7 @@ public class ConnectFourView extends GridLayout {
         }
 
         buttons[r][column].setText(text);
+
         if(text.contains("X")){
             buttons[r][column].setTextColor(Color.RED);
             buttons[r][column].getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
@@ -96,6 +97,7 @@ public class ConnectFourView extends GridLayout {
         for(int r=0; r<row;r++){
             for(int c=0;c<column;c++){
                 buttons[r][c].setText("");
+                buttons[r][c].getBackground().clearColorFilter();
             }
         }
     }

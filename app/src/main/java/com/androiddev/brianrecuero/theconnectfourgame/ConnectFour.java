@@ -22,9 +22,9 @@ public class ConnectFour {
         if (r >= 0 && c >= 0 && r < row && c < column
                 && game[0][c] == 0) {//........if it fits in the params and there are free spaces on the Connect Four Board
             int rows;
-            for(rows=ConnectFour.row-1; r > -1;r--){
+            for(rows = ConnectFour.row - 1; rows > -1;rows--){
                 if(game[rows][c]==0) {
-                    game[r][c] = player_Turn;
+                    game[rows][c] = player_Turn;
                     break;
                 }
             }
@@ -83,7 +83,7 @@ public class ConnectFour {
             int count = 0;
 
             for (int r = 1; r < row; ++r) {
-                if ((game[r][c] != 0 && r!=0) &&
+                if ((game[r][c] != 0 ) &&
                         game[r][c] == game[r - 1][c]) {
                     ++count;
 
