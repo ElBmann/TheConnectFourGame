@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TheConnectFourGame</string>
+    <string name="title_activity_player_name">playerName</string>
+    <string name="userName">Enter Name</string>
 </resources>

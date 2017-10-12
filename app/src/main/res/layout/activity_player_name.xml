@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.androiddev.brianrecuero.theconnectfourgame.PlayerName">
+
+    <TextView
+    android:id="@+id/Player1"
+    style="@style/Player1Style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginLeft="20dp"
+    android:text="Player 1 Name"/>
+    <EditText
+        android:id="@+id/inputGameTag"
+        style="@style/inputPlayer1"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@+id/Player1"
+        android:layout_alignBottom="@+id/Player1"
+        android:layout_alignParentRight="true"
+        android:hint="Gamer Tag Here"
+        android:inputType="text"
+        />
+    <TextView
+        android:id="@+id/Player2"
+        style="@style/Player1Style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Player1"
+        android:layout_marginLeft="20dp"
+        android:text="Player 2 Name"/>
+    <EditText
+        android:id="@+id/inputGameTag2"
+        style="@style/inputPlayer1"
+        android:layout_marginRight="20dp"
+        android:layout_toRightOf="@+id/Player2"
+        android:layout_below="@+id/Player1"
+        android:layout_alignBottom="@+id/Player2"
+        android:layout_alignParentRight="true"
+        android:hint="Gamer Tag Here"
+        android:inputType="text"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputGameTag2"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="260dp"
+        android:padding="30dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="20dp"
+        android:text="Play"
+        android:onClick="Play"/>
+
+</RelativeLayout>
